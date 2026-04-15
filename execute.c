@@ -32,7 +32,7 @@ char *find_path(char *cmd)
 	if (stat(cmd, &st) == 0)
 		return (strdup(cmd));
 	path = get_path_env();
-	if (path == NULL)
+	if (path == NULL || path[0] == '\0')
 		return (NULL);
 	path_copy = strdup(path);
 	if (path_copy == NULL)
@@ -63,7 +63,7 @@ char *find_path(char *cmd)
  * execute - executes a command
  * @args: array of arguments
  * @progname: name of the shell
- * Return: 1 to continue, 0 to stop
+ * Return: exit status
  */
 int execute(char **args, char *progname)
 {
@@ -77,7 +77,7 @@ int execute(char **args, char *progname)
 	if (path == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", progname, args[0]);
-		return (1);
+		exit(127);
 	}
 	pid = fork();
 	if (pid == 0)
