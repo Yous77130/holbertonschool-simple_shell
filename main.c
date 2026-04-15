@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("($) ");
+			printf("#cisfun$ ");
 		line = read_line();
 		if (line == NULL)
 		{
