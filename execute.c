@@ -77,7 +77,7 @@ int execute(char **args, char *progname)
 	if (path == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", progname, args[0]);
-		exit(127);
+		return (127);
 	}
 	pid = fork();
 	if (pid == 0)
