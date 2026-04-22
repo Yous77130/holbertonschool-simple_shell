@@ -1,0 +1,24 @@
+.TH HSH 1 "April 2026" "1.0" "Simple Shell Man Page"
+.SH NAME
+hsh \- simple UNIX command interpreter
+.SH SYNOPSIS
+.B hsh
+[command]
+.SH DESCRIPTION
+hsh is a simple UNIX command line interpreter that executes commands read from the standard input or from a file.
+.SH USAGE
+Interactive mode:
+.br
+    $ ./hsh
+.br
+    ($) /bin/ls
+.br
+    ($) exit
+.br
+Non-interactive mode:
+.br
+    $ echo "/bin/ls" | ./hsh
+.SH COMPILATION
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+.SH AUTHORS
+Youssef Ben Rahou, Pacome Dutreuil
